@@ -1,55 +1,138 @@
+@font-face {
+    font-family: raju;
+    src: url(./sf-pro-text_semibold.woff2);
+}
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
 body{
-    background-color: royalblue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
-.keyboard{
-    width: 80%;
-    height: 50%;
-    background-color: ;
-    position: relative;
-    display: flex;
-}
-
-/* WHITE KEYS */
-.keys.white{
-    height: 100%;
-    width: 80px;
-    background-color: white;
-    color: black;
-    border: .5px solid #333;
-    box-sizing: border-box;
-    position: relative;
-}
-
-/* BLACK KEYS */
-.keys.black{
-    height: 70%;
-    width: 50px;
     background-color: black;
-    position: absolute;
-    z-index: 2;
-    box-shadow: #333;
+    font-family: raju;
 }
-
-/* Inner key (the .btn you wanted) */
-.key.btn{
+main{
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    padding-bottom: 5px;
+    padding: 20px;
+    background: linear-gradient(to right bottom, rgb(94, 94, 94),rgb(53, 53, 53),black)
 }
 
-.key.btn p{
+section{
+    height: 100%;
+    width: 450px;
+    background-color: black;
+    border-radius: 20px;
+    margin: auto;
     color: white;
+}
+
+.all-reels{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.all-reels::-webkit-scrollbar{
+    display: none;
+}
+.reel{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    
+}
+
+.reel img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.reel video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.reel .bottom{
+    padding: 20px 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0), black);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.bottom .user{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.bottom .user img{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.bottom>h3{
+    font-weight: 500;
+    font-size: 15px;
+    padding-right:10px;
+}
+
+.user button{
+    background-color: transparent;
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-size: 500;
+    border:1px solid white;
+    color: white;
+}
+
+
+.right{
+    width: 40px;
+    position: absolute;
+    right: 0;
+    bottom: 8%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.right h4{
+    cursor: pointer;
+}
+
+.right h6{
+    font-weight: 100;
     font-size: 12px;
 }
-.white .key.btn p{
-    color: black;
-    font-size: 12px;
+
+.right i{
+    font-size: 25px;
+}
+
+.right h4, .right h6{
+    pointer-events: none;
 }

@@ -1,112 +1,179 @@
-const notes = [
-  // Octave 1
-  { note: "C1", type: "white", sound: 28, key:"a" },
-  { note: "C#1", type: "black", position: 1, sound: 29, key:"q" },
-  { note: "D1", type: "white", sound: 30, key:"s" },
-  { note: "D#1", type: "black", position: 2, sound: 31, key:"w" },
-  { note: "E1", type: "white", sound: 32, key:"d" },
-  { note: "F1", type: "white", sound: 33, key:"f" },
-  { note: "F#1", type: "black", position: 4, sound: 34 , key:"e"},
-  { note: "G1", type: "white", sound: 35, key:"g" },
-  { note: "G#1", type: "black", position: 5, sound: 36, key:"r" },
-  { note: "A1", type: "white", sound: 37, key:"h" },
-  { note: "A#1", type: "black", position: 6, sound: 38, key:"t" },
-  { note: "B1", type: "white", sound: 39, key:"j" },
-
-  // Octave 2
-  { note: "C2", type: "white", sound: 40, key:"k" },
-  { note: "C#2", type: "black", position: 8, sound: 41, key:"y" },
-  { note: "D2", type: "white", sound: 42, key:"l" },
-  { note: "D#2", type: "black", position: 9, sound: 43, key:"u" },
-  { note: "E2", type: "white", sound: 44, key:";" },
-  { note: "F2", type: "white", sound: 45, key:"'" },
-  { note: "F#2", type: "black", position: 11, sound: 46, key:"i" },
-  { note: "G2", type: "white", sound: 47, key:"v" },
-  { note: "G#2", type: "black", position: 12, sound: 48, key:"o" },
-  { note: "A2", type: "white", sound: 49, key:"b" },
-  { note: "A#2", type: "black", position: 13, sound: 50, key:"p" },
-  { note: "B2", type: "white", sound: 51, key:"n" }
+const reels = [
+  {
+    username: "beautybyana",
+    likeCount: 12800,
+    isLiked: false,
+    commentCount: 320,
+    caption: "Morning skincare routine for glowing skin ✨",
+    video: "./video/1.mp4",
+    userProfile: "https://i.pravatar.cc/150?img=12",
+    shareCount: 140,
+    isFollowed: true
+  },
+  {
+    username: "stylewithrahul",
+    likeCount: 8900,
+    isLiked: true,
+    commentCount: 210,
+    caption: "Winter streetwear fits 🔥",
+    video: "./video/2.mp4",
+    userProfile: "https://i.pravatar.cc/150?img=32",
+    shareCount: 90,
+    isFollowed: false
+  },
+  {
+    username: "cookwithmira",
+    likeCount: 15600,
+    isLiked: false,
+    commentCount: 450,
+    caption: "5-min pasta recipe everyone should try 😍",
+    video: "./video/3.mp4",
+    userProfile: "https://i.pravatar.cc/150?img=47",
+    shareCount: 300,
+    isFollowed: true
+  },
+  {
+    username: "fitness_nikhil",
+    likeCount: 22200,
+    isLiked: true,
+    commentCount: 670,
+    caption: "Best home workout for chest 💪",
+    video: "./video/4.mp4",
+    userProfile: "https://i.pravatar.cc/150?img=18",
+    shareCount: 190,
+    isFollowed: true
+  },
+  {
+    username: "travelwithsana",
+    likeCount: 9800,
+    isLiked: false,
+    commentCount: 260,
+    caption: "Hidden gem in Himachal 🌄",
+    video: "./video/5.mp4",
+    userProfile: "https://i.pravatar.cc/150?img=65",
+    shareCount: 120,
+    isFollowed: false
+  },
+  {
+    username: "techbysid",
+    likeCount: 6400,
+    isLiked: false,
+    commentCount: 150,
+    caption: "iOS vs Android in 2025 — quick breakdown ⚡",
+    video: "./video/1.mp4",
+    userProfile: "https://i.pravatar.cc/150?img=49",
+    shareCount: 70,
+    isFollowed: true
+  },
+  {
+    username: "makeupwithkriti",
+    likeCount: 19000,
+    isLiked: true,
+    commentCount: 520,
+    caption: "Soft glam look for any occasion 💄",
+    video: "./video/2.mp4",
+    userProfile: "https://i.pravatar.cc/150?img=3",
+    shareCount: 250,
+    isFollowed: false
+  },
+  {
+    username: "thepetcorner",
+    likeCount: 27500,
+    isLiked: false,
+    commentCount: 880,
+    caption: "This puppy learning to sit 😭❤️",
+    video: "./video/3.mp4",
+    userProfile: "https://i.pravatar.cc/150?img=10",
+    shareCount: 460,
+    isFollowed: true
+  },
+  {
+    username: "codingwitharav",
+    likeCount: 5400,
+    isLiked: true,
+    commentCount: 110,
+    caption: "JavaScript hack everyone should know 🤯",
+    video: "./video/4.mp4",
+    userProfile: "https://i.pravatar.cc/150?img=24",
+    shareCount: 40,
+    isFollowed: false
+  },
+  {
+    username: "dancewithme",
+    likeCount: 31200,
+    isLiked: false,
+    commentCount: 920,
+    caption: "New dance trend 😍🔥 Try this!",
+    video: "./video/5.mp4",
+    userProfile: "https://i.pravatar.cc/150?img=57",
+    shareCount: 510,
+    isFollowed: true
+  }
 ];
 
-
-let layout = "";
-
-notes.forEach(e => {
-  layout += `
-    <div class="keys ${e.type}" data-pos="${e.position || ''}" data-sound="${e.sound}" data-key="${e.key}" >
-        <div class="key btn" ">
-            <p>${e.note}</p>
-        </div>
-    </div>
-  `
-  
-  
-});
+let allReels = document.querySelector('.all-reels')
 
 
-document.querySelector(".keyboard").innerHTML = layout;
-let white = document.querySelectorAll('.white')
-let black = document.querySelectorAll('.black')
-let key = document.querySelectorAll('.keys')
 
-let flag = 0
+function addData() {
+    let sum = ""
+    reels.forEach((elem, idx)=>{
+        sum = sum+ `<div class="reel">
+                        <video autoplay loop muted src="${elem.video}"></video>
+                        <div class="bottom">
+                            <div class="user">
+                                <img src="${elem.userProfile}" alt="">
+                                <h4>${elem.username}</h4>
+                                <button id="${idx}" class="follow">${elem.isFollowed ? 'Unfollow' : 'Follow'}</button>
+                            </div>
+                            <h3>${elem.caption}</h3>
+                        </div>
+                        <div class="right">
+                            <div id="${idx}" class="like">
+                                <h4 class="like-icon icon">${elem.isLiked ? '<i class="ri-heart-3-fill"></i>':'<i class="ri-heart-3-line"></i>'}</h4>
+                                <h6>${elem.likeCount}</h6>
+                            </div>
+                            <div class="comment">
+                                <h4 class="comment-icon icon"><i class="ri-chat-3-line"></i></h4>
+                                <h6>${elem.commentCount}</h6>
+                            </div>
+                            <div class="share">
+                                <h4 class="share-icon icon"><i class="ri-send-plane-fill"></i></h4>
+                                <h6>${elem.shareCount}</h6>
+                            </div>
+                            <div class="menu">
+                                <h4 class="menu-icon icon"><i class="ri-more-2-line"></i></h4>
+                            </div>
+                        </div> 
+                    </div>`
+    })
 
-let sound = {}
-for(i=28; i<=63; i++){
-  sound[i] = new Audio(`./sound/${i}.mp3`)
+    allReels.innerHTML = sum
 }
 
-key.forEach((key)=>{
-  key.addEventListener('click', () => {
-        let sound = key.dataset.sound; 
-        let aud = new Audio(`./sound/${sound}.mp3`)
-        aud.play()
-          
-    });
-})
+addData()
 
-black.forEach((key) => {
-    let pos = key.dataset.pos;
-    key.style.left = (80 * pos - 25) + "px"; 
-
-    key.addEventListener("click",()=>{
-    key.style.top = '10px'
-    setTimeout(()=>{
-      key.style.top = '0'
-    },200)
-  })
-
-});
-
-white.forEach((key)=>{
-  
-  key.addEventListener("click",()=>{
-    key.style.top = '10px'
-    key.style.backgroundColor = 'rgb(219, 218, 218)'
-    setTimeout(()=>{
-      key.style.top = '0'
-      key.style.backgroundColor = 'white'
-    },200)
-  })
-})
-
-
-
-document.addEventListener('keydown',(e)=>{
-  let key = document.querySelector(`.keys[data-key="${e.key}"`)
-  if(key){
-    key.style.top = '10px'
-    if(key.classList.contains('white')){
-      key.style.backgroundColor = 'rgb(219, 218, 218)'
+allReels.addEventListener('click',(dets)=>{
+    if(dets.target.className == 'like'){
+        if(!reels[dets.target.id].isLiked){
+        reels[dets.target.id].likeCount++
+        reels[dets.target.id].isLiked = true
+        
+        }else{
+            reels[dets.target.id].likeCount--
+            reels[dets.target.id].isLiked = false
+        }
     }
-    setTimeout(()=>{
-      key.style.top = '0'
-        if(key.classList.contains('white')){
-        key.style.backgroundColor = 'white'
-      }
-    },200)
-    let sound = key.dataset.sound; 
-    let aud = new Audio(`./sound/${sound}.mp3`)
-    aud.play()
-  }
+
+    if(dets.target.className == 'follow'){
+        if(!reels[dets.target.id].isFollowed){
+        reels[dets.target.id].isFollowed = true
+        
+        }else{
+            reels[dets.target.id].isFollowed = false
+        }
+    }
+    
+    
+    addData()
 })
