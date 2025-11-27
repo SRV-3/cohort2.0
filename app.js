@@ -20,9 +20,9 @@ h1.addEventListener('mouseenter',()=>{
         }).join('')
         h1.innerText = str
 
-        iteration += 0.2
+        iteration += 0.25
         
-    },30)
+    },70)
         
         
 
