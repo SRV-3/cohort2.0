@@ -1,19 +1,6 @@
-function getUser(username, cb) {
-  console.log("fetching");
+const h1 = document.createElement("h1");
 
-  setTimeout(() => {
-    cb({ id: 1001, username: "srv" });
-  }, 1000);
-}
+h1.textContent = "Hello World";
+document.body.prepend(h1);
 
-function getUserPost(id, cb) {
-  setTimeout(() => {
-    cb(["hello", "hye", "bye-bye"]);
-  }, 2000);
-}
-
-getUser("srv", function (data) {
-  getUserPost(data.id, function (allPosts) {
-    console.log(data.id, data.username, allPosts[1]);
-  });
-});
+// h1.remove();
