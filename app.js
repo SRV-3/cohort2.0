@@ -1,4 +1,2 @@
-const ul = document.querySelector("ul");
-const li = document.createElement("li");
-li.innerText = "kese ho";
-ul.append(li);
+const lis = document.querySelectorAll("li:nth-child(2n)");
+console.log(lis);
