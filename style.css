@@ -47,3 +47,7 @@ p {
 input {
   display: none;
 }
+
+.lt {
+  text-decoration: line-through;
+}
