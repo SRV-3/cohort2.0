@@ -1,9 +1,10 @@
+const btn = document.querySelector(".btn");
+const input = document.querySelector("input");
 const p = document.querySelector("p");
 
-window.addEventListener("keydown", function (e) {
-  if (e.key === " ") {
-    p.textContent = "SPACE";
-  } else {
-    p.textContent = e.key;
-  }
+btn.addEventListener("click", function () {
+  input.click();
+  input.addEventListener("change", function (e) {
+    p.textContent = e.target?.files[0].name;
+  });
 });
