@@ -44,10 +44,6 @@ p {
   transform: scale(0.7);
 }
 
-input {
-  display: none;
-}
-
 .lt {
   text-decoration: line-through;
 }

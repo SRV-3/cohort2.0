@@ -1,5 +1,6 @@
-const ul = document.querySelector("ul");
+const input = document.querySelector("input");
+const span = document.querySelector("span");
 
-ul.addEventListener("click", function (e) {
-  e.target.classList.toggle("lt");
+input.addEventListener("input", function (e) {
+  span.textContent = 20 - e.target.value.length;
 });
