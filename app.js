@@ -1,2 +1,9 @@
-const lis = document.querySelectorAll("li:nth-child(2n)");
-console.log(lis);
+const p = document.querySelector("p");
+
+window.addEventListener("keydown", function (e) {
+  if (e.key === " ") {
+    p.textContent = "SPACE";
+  } else {
+    p.textContent = e.key;
+  }
+});
